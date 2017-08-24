@@ -36,24 +36,24 @@ FORMS += \
 
 ### WINDOWS LIBRARIES ###
 
+
+win32: LIBS += -L$$PWD/../../build-openssl-32/lib/ -lopenssl
+
+INCLUDEPATH += $$PWD/../../build-openssl-32/include
+DEPENDPATH += $$PWD/../../build-openssl-32/include
+
 win32: LIBS += -L$$PWD/../../build-openssl-32/lib/ -llibcrypto
 
 INCLUDEPATH += $$PWD/../../build-openssl-32/include
 DEPENDPATH += $$PWD/../../build-openssl-32/include
 
-win32: LIBS += -L$$PWD/../../build-openssl-32/lib/ -llibssl
 
-INCLUDEPATH += $$PWD/../../build-openssl-32/include
-DEPENDPATH += $$PWD/../../build-openssl-32/include
-
-win32: LIBS += -L$$PWD/../../poco-build/lib/release/ -lPocoCrypto
-
-INCLUDEPATH += $$PWD/../../poco/Crypto/include
-DEPENDPATH += $$PWD/../../poco/Crypto/include
-
-
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../poco-build/lib/release/ -lPocoFoundation
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../poco-build/lib/debug/ -lPocoFoundation
+win32: LIBS += -L$$PWD/../../poco-build/lib/Release/ -lPocoFoundation
 
 INCLUDEPATH += $$PWD/../../poco/Foundation/include
 DEPENDPATH += $$PWD/../../poco/Foundation/include
+
+win32: LIBS += -L$$PWD/../../poco-build/lib/Release/ -lPocoCrypto
+
+INCLUDEPATH += $$PWD/../../poco/Crypto/include
+DEPENDPATH += $$PWD/../../poco/Crypto/include
